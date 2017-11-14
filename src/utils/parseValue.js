@@ -17,5 +17,9 @@ export const parseValue = (prevValue, nextNumber) => {
     	return prevValue
     }
 
+    if (prevValue.indexOf('.') != -1 && nextNumber == '.') {
+        return prevValue
+    }
+
 	return value
 }
