@@ -1,0 +1,114 @@
+@import './variables';
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    min-height: 100%;
+    position: relative;
+    overflow-x: auto;
+    display: flex;
+
+    background-color: $dune;
+}
+
+.app > div {
+    flex: 1 1 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-title {
+    margin-bottom: 50px;
+    font-size: 36px;
+    color: $tan-hide;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 90px);
+    grid-template-rows: 100px repeat(5, 60px);
+    box-sizing: border-box;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    .calculator-cell {
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: 1px solid $dawn;
+        background-color: $alto;
+        cursor: pointer;
+
+        &:active {
+            background-color: darken($alto, 20%);
+        }
+
+        &.input-cell {
+            grid-area: 1/1/2/5;
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            font-size: 54px;
+            background-color: $dawn;
+            color: white;
+            cursor: auto;
+        }
+
+        &.AC-cell {
+            grid-area: 2/1/3/4;
+        }
+
+        &.equais-cell {
+            grid-area: 6/4/8/5;
+            border-bottom-right-radius: 15px;
+        }
+
+        &.plus-cell {
+            grid-area: 5/4/6/5;
+        }
+
+        &.minus-cell {
+            grid-area: 4/4/5/5;
+        }
+
+        &.multiply-cell {
+            grid-area: 3/4/4/5;
+        }
+
+        &.divide-cell {
+            grid-area: 2/4/3/5;    
+        }
+
+        &.equais-cell, &.plus-cell, &.minus-cell, &.multiply-cell, &.divide-cell {
+            background-color: $tan-hide;
+
+            &:active {
+                background-color: darken($tan-hide, 10%);
+            }
+        }
+
+        &.dot-cell {
+            grid-area: 6/3/7/4;
+        }
+
+        &.null-cell {
+            grid-area: 6/1/7/3;
+            border-bottom-left-radius: 15px;
+        }
+    }
+}
