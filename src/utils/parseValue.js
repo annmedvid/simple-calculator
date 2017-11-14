@@ -1,4 +1,5 @@
 export const parseValue = (prevValue, nextNumber) => {
+    prevValue = String(prevValue)
 	let value = nextNumber
 
 	if (prevValue !== '0') {

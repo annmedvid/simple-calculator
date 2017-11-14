@@ -36,14 +36,19 @@ const reducerMap = {
         
     },
     [GET_OUTPUT]: (state) => {
-        let output = state.input
+        let preOutput = state.input
         if (state.operator) {
-            output = `${state.output}${state.operator}${state.input}`
+            preOutput = `${state.output}${state.operator}${state.input}`
+        }
+
+        let output = eval(preOutput)
+        if (String(output).length > 10) {
+            output = output.toFixed(9)
         }
 
         return {
             ...INITIAL_STATE,
-            output: eval(output),
+            output,
             showOutput: true,
         }
     },
