@@ -24,6 +24,7 @@ const reducerMap = {
         let output = state.input
         if (state.output && state.operator && state.input) {
             output = eval(`${state.output}${state.operator}${state.input}`)
+            output = isNaN(output) ? '0' : output
         }
 
         return {
@@ -42,6 +43,7 @@ const reducerMap = {
         }
 
         let output = eval(preOutput)
+        output = isNaN(output) ? '0' : output
         if (String(output).length > 10) {
             output = output.toFixed(9)
         }
