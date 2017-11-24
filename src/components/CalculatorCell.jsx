@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import injectProps from '../utils/decorators/injectProps'
 
@@ -27,4 +28,9 @@ export default class CalculatorCell extends Component {
             </div>
         )
     }
+}
+
+CalculatorCell.propTypes = {
+    value: PropTypes.string,
+    onClick: PropTypes.func,
 }

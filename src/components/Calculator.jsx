@@ -10,7 +10,7 @@ export default class Calculator extends Component {
         const numbers = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, '.']
         const operations = ['+', '-', '*', '/']
 
-        const numberCells = numbers.map(number => <CalculatorCell value={number} onClick={onSetNumber} key={KeyGenerator.getNext()} />)
+        const numberCells = numbers.map(number => <CalculatorCell value={number.toString()} onClick={onSetNumber} key={KeyGenerator.getNext()} />)
         const operationCells = operations.map(operation => <CalculatorCell value={operation} onClick={onSetOperator} key={KeyGenerator.getNext()} />)
 
         return (
